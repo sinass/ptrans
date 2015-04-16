@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="cloudviewPersistenceUnit" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<non-jta-data-source>DefaultDS</non-jta-data-source>
+		<class>model.AcquisitionSystem</class>
+		<class>model.AnatomicalRegion</class>
+		<class>model.Animal</class>
+		<class>model.AnimalFile</class>
+		<class>model.AppDiagnosi</class>
+		<class>model.AppNotification</class>
+		<class>model.AppSouscription</class>
+		<class>model.AppStorage</class>
+		<class>model.AppUser</class>
+		<class>model.BigBreed</class>
+		<class>model.BigGroup</class>
+		<class>model.BigMorpho</class>
+		<class>model.Breed</class>
+		<class>model.CahierTir</class>
+		<class>model.CatBreed</class>
+		<class>model.CatGroup</class>
+		<class>model.CatMorpho</class>
+		<class>model.Category</class>
+		<class>model.Constant</class>
+		<class>model.Description</class>
+		<class>model.DogBreed</class>
+		<class>model.DogGroup</class>
+		<class>model.DogMorpho</class>
+		<class>model.Examination</class>
+		<class>model.Filter</class>
+		<class>model.FilterHasTreatmentProtocol</class>
+		<class>model.HeaderDicom</class>
+		<class>model.Image</class>
+		<class>model.ImageSerie</class>
+		<class>model.NacBreed</class>
+		<class>model.NacGroup</class>
+		<class>model.NacMorpho</class>
+		<class>model.Owner</class>
+		<class>model.OwnerHasAnimal</class>
+		<class>model.Pathology</class>
+		<class>model.RadioModality</class>
+		<class>model.Radioprotection</class>
+		<class>model.ServiceNotification</class>
+		<class>model.Study</class>
+		<class>model.Surgery</class>
+		<class>model.TreatmentProtocol</class>
+		<class>model.Veterinary</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/cloudview"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="tp"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -10,5 +10,8 @@ libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
   cache,
-  javaWs
+  javaWs,
+  javaJpa,
+  javaCore,
+  "org.eclipse.persistence" % "eclipselink" % "2.5.2"
 )
