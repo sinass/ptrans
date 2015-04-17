@@ -10,6 +10,9 @@ public class EntityManagerProvider {
 	private EntityManagerProvider(){
 		
 	}
+	public static EntityManagerProvider getInstance(){
+		return singleton;
+	}
 	public EntityManagerFactory getEntityManagerFactory() {
 		if(emf == null ) emf = Persistence.createEntityManagerFactory(persistenceUnit);
 		return emf;
