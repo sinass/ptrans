@@ -261,6 +261,20 @@ control-wrap{
 	margin-right:10%;
 }
 
+/*form validation*/
+form .ng-invalid.ng-dirty { 
+	background-color: lightpink; 
+}
+form .ng-valid.ng-dirty { 
+	background-color: lightgreen; 
+}
+form .ng-invalid-required.ng-dirty { 
+	background-color: lightpink; 
+}
+form .ng-invalid-email.ng-dirty { 
+	background-color: lightgoldenrodyellow;
+}
+
 /*pour bootstrap */
 .navbar-brand{
 	overflow: hidden;
