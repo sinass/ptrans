@@ -1,16 +1,16 @@
-angular.module("cloudView",[])
+angular.module("cloudView")
 .config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/login', {
-        templateUrl: 'views/login.html',
+        templateUrl: '/assets/javascripts/views/login.html',
         controller: 'loginCtrl'
       }).
       when('/index', {
-        templateUrl: 'views/index.html',
+        templateUrl: '/assets/javascripts/views/index.html',
         controller: 'cloudViewCtrl'
       }).
       otherwise({
-        redirectTo: '/login'
+        redirectTo: '/index'
       });
 }]);
