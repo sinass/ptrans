@@ -1,0 +1,273 @@
+@font-face {
+    font-family: "Lato";
+    src: url('lato/Lato-Thin.ttf');
+}
+
+html, body {
+ 	margin:0;
+ 	padding:0;
+ 	height: 100%;
+ 	width: 100%;
+ }
+.column-container{
+	/*background-color:#f9f9f9;*/
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+	margin:0px
+}
+.column-container>.row-fluid{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.column{
+	position:relative;
+	height: 100%;
+	padding: 0px;
+	margin:0px;
+	box-sizing: border-box;
+	border-right: 2px solid white;
+}
+.column-menu{
+	margin-bottom:0px;
+	padding-bottom:0px;
+	height: 85px;
+	border-right: 0;
+	border-left: 0;
+	border-bottom: 2px solid #00adef;
+	border-radius: 0;
+}
+.item-name,.item-tab-name{
+	margin-left: 10px;
+	font-weight: 500;
+	font-size: 12px;
+}
+.column-content-container{
+	padding: 0px;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.column-content, .column-content-container{
+	border:0px;
+}
+.column-content, .sub-item{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+.column-item-top{
+	background-color: #d4eefc;
+}
+.column-item-top, .column-item{
+	padding:10px 0px;
+    margin-bottom: -1px;
+    border-bottom: 2px solid #ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    position: relative;
+	width:100%;
+	cursor: pointer;
+}
+.column-item{
+	height: 45px;
+	color: #364249;
+	*/background-color: #f9f9f9;*/
+}
+.column-item:first-child {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+ul li.column-item:last-child {
+  border: 0px;
+  margin-bottom: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.column-item>.sub-item>.column-item{
+	padding-left:60px;
+}
+/*
+.column-item:hover > .fa{
+	font-size: 32px;
+  	vertical-align: -6px;
+}
+*/
+.column-item:hover, .column-item.active-row{
+	background-color: #d4eefc;
+}
+#sub-item{
+	border: 0px;
+	padding: 0px;
+}
+.item-content{
+	display: inline-block;
+}
+
+.item-info{
+	font-style: italic;
+	font-size: 12px;
+	text-transform: lowercase;
+}
+.tab-header{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 25px;
+	
+}
+.tab-header-item{
+	padding-right: 0px;
+	padding-left: 0;
+	margin-right:15px;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+.tab-header-item-name,
+.docteur,.status,
+.diagnostic{
+	text-align: center;
+	margin-right: 5px;
+	display: inline-block;
+}
+.tab-header-item-name:last-child{
+	margin-right:0px;
+}
+.docteur{
+	width: 65px;
+}
+.status{
+	width: 68px;
+}
+.diagnostic{
+	width: 116px;
+}
+a.sortable{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: #00adef;
+	text-transform: capitalize;
+}
+
+ul.column-content{
+	margin-bottom:0px;
+}
+i.angle{
+	color: #9ba7af;
+	float: right;
+	line-height: 34px;
+}
+i.tab-item-angle{
+	color: #9ba7af;
+	float: right;
+	line-height: 20px;
+}
+li.content-div{
+	color: #364249;
+	line-height: 1;
+	white-space: nowrap;
+}
+.meta, .meta-item{
+	bottom: 0;
+	margin-left: 10px;
+	color: #9BA7AF;
+}
+.meta{
+	font-size: 9px;
+}
+.meta-item{
+	font-size: 12px;
+}
+h4.item-name{
+	margin-bottom: 1px;
+	margin-top:3px;
+}
+h4.item-tab-name{
+	font-size: 14px;
+	
+}
+.hidden{
+	display: none !important;
+}
+.no-padding{
+	padding: 0px;
+}
+.no-margin{
+	margin:0px;
+}
+#home-nav{
+	padding-left:5%;
+	padding-right:5%;
+}
+.center{
+	padding-left:30%;
+	padding-right:30%;
+
+}
+#login-form .lock{
+	width: 100px;
+    float: left;
+    /*margin-top: 28px;*/
+    font-size: 110px;
+    vertical-align: middle;
+}
+
+#form{
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 5% 5% 5% 5%;
+	/*height: 60%;*/
+	border:1px solid #ddd;
+	background-color: #fff;
+}
+control-wrap{
+	width: 266px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+#form .form-group {
+  margin-bottom: 2px;
+}
+#with-background{
+  	background-color: transparent; 
+  	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  	background-size: cover; /* version standardisée */
+}
+#login-btn{
+	/*height: 50px;*/
+	background: url("../assets/img/login-btn.jpg");
+    border: none;
+    box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: none;
+    padding: 10px 0;
+}
+.login-input{
+	height: 42px;
+	width: 206px;
+	padding: 10px 10px 10px 10px;
+}
+#app-header{
+	margin-left:10%;
+	margin-right:10%;
+}
+
+/*pour bootstrap */
+.navbar-brand{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+.navbar-default{
+	background-color: white;
+	background-image: #fff;
+}
