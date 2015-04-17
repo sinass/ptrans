@@ -11,6 +11,6 @@ angular.module("cloudView")
         controller: 'cloudViewCtrl'
       }).
       otherwise({
-        redirectTo: '/index'
+        redirectTo: '/login'
       });
 }]);

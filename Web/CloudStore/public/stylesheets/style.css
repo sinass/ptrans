@@ -238,7 +238,7 @@ control-wrap{
 }
 #login-btn{
 	/*height: 50px;*/
-	background: url("../assets/img/login-btn.jpg");
+	background: url("/assets/images/login-btn.jpg");
     border: none;
     box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
     -moz-box-shadow: 1px 0 1px #FFFFFF, 0 0 3px rgba(0, 0, 0, 0.2) inset;
