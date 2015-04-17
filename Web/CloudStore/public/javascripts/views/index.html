@@ -1,0 +1,480 @@
+<div class="container-fluid column-container" ng-controller="cloudViewCtrl">
+	<div class="row-fluid">
+		<!-- menuView !--> 
+		<div class="col-sm-3 column" ng-show="menuView.show" >
+			<div class="row-fluid">
+				<!--navbar-->
+				<nav class="navbar navbar-default column-menu">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cloudview-navbar">
+								<span class="sr-only">Toggle navigation</span>
+							</button>
+							<a class="navbar-brand" href="#">
+							    	<!--<img alt="Brand" src="assets/img/small.PNG"> -->
+							    	CLOUDview
+		  					</a>
+						</div>
+						<div class="collapse navbar-collapse" id="cloudview-navbar">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Action</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav><!-- /.navbar -->
+			</div>
+			<!--menu-content -->
+			<div class="row-fluid">
+				<div class="col-sm-12 column-content-container">
+					<ul class="list-group column-content"><!--items -->
+						<li class="list-group-item column-item-top"> <!--head-section -->
+							<i class="fa fa-user fa-4x fa-fw item-icon"></i> <!--avatar-icon -->
+							<div class="item-content">
+								<h4 >{{data.menu.user.Lastname}}&nbsp;{{data.menu.user.Firstname}}</h4>
+								<span class="item-info">{{data.menu.user.email}}</span><!--user-email -->
+							</div>
+						</li>
+						<li class="list-group-item column-item" id="sub-item">
+							<ul class="sub-item list-group">
+								<li class="list-group-item column-item active-row" ng-repeat="item in data.menu.content">
+									<i class="fa fa-folder-o fa-2x fa-fw"></i> <!--folder-icon -->
+									<div class="item-content">
+										<h4 class="item-tab-name">{{item.name}}</h4> <!--item-name -->
+									</div>
+									<i class="fa fa-angle-right fa-lg fa-fw  angle"></i> <!--angle-right-icon -->
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- /.navbar-column -->
+		<!--/menuView !--> 
+		<!-- animalsView !--> 
+		<div  ng-show="animalView.show">
+			<!-- animal's tab column !-->
+			<div class="col-sm-9 column"  ng-show="animalView.tab"><!--column animals -->
+				<!--animals tab's header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cloudview-navbar">
+									<span class="sr-only">Toggle navigation</span>
+								</button>
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >Personal folder a</span> <!--item-name -->
+								</a>
+							</div>
+							<div class="collapse navbar-collapse" id="cloudview-navbar">
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid tab-header">
+							<div class="col-sm-4 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+							<div class="pull-right tab-header-item">
+								<a href="#" class="sortable tab-header-item-name docteur" >
+									<span>Docteur</span>
+									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
+								</a>
+								<a href="#" class="sortable tab-header-item-name status" >
+									<span>Nouvelle</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/animal's tab header !-->
+				<!--animal's tab content !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-4">
+										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span> <!--item-date -->
+										</div>
+									</div>
+									<div class="pull-right tab-header-item">
+										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
+										<span class="meta-item item-info tab-header-item-name status">{{item.newStudy}}</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/animal's tab !-->
+			</div>
+			<!--/animals' tab's colum !-->
+			<!-- animal's list's column !-->
+			<div class="col-sm-2 column" ng-show="animalView.list">
+				<!--animal's list header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">
+									<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+									<span >Personal folder</span> <!--item-name -->
+								</a>
+							</div>
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-12 ">
+								<a href="#" class="sortable active" >
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw" ></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/animal's list header !-->
+				<!--animal's list !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-12">
+										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/animal's list!-->
+			</div>
+		</div>
+		<!--/animalsView !--> 
+		<!-- studiesView !-->
+		<div  ng-show="studiesView.show">
+			<!--studies tab's column !-->
+			<div class="col-sm-7 column"  ng-show="studiesView.tab"><!--column studies -->
+				<!--studies tab's header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cloudview-navbar">
+									<span class="sr-only">Toggle navigation</span>
+								</button>
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{animalView.animal}}</span> <!--item-name -->
+								</a>
+							</div>
+							<div class="collapse navbar-collapse" id="cloudview-navbar">
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-4 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+							<div class="pull-right tab-header-item">
+								<a href="#" class="sortable tab-header-item-name diagnostic" >
+									<span>Accès diagnostic</span>
+									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
+								</a>
+								<a href="#" class="sortable tab-header-item-name docteur">
+									<span>Docteur</span>
+									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/studies tab header !-->
+				<!--studies tab content !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-4">
+										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+									<div class="pull-right tab-header-item">
+										<span class="meta-item item-info tab-header-item-name diagnostic ">{{item.accessReport}}</span>
+										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/studies tab !-->
+			</div>
+			<!--/studies tab's column !-->
+			<!-- studies list's column !-->
+			<div class="col-sm-2 column" ng-show="studiesView.list">
+				<!--studies list header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{animalView.animal}}</span> <!--item-name -->
+								</a>
+							</div>
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-12 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/studies' list header !-->
+				<!--studies' list !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-12">
+										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/studies list!-->
+		</div>
+		<!-- studiesView !-->
+		<!--RadiosView !-->
+		<div  ng-show="radiosView.show">
+			<!--radio's tab's column !-->
+			<div class="col-sm-8 column"  ng-show="radiosView.tab"><!--column radios -->
+				<!--radio's tab's header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cloudview-navbar">
+									<span class="sr-only">Toggle navigation</span>
+								</button>
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{studiesView.study}}</span> <!--item-name -->
+								</a>
+							</div>
+						<!--<div class="collapse navbar-collapse" id="cloudview-navbar">
+								<div class="nav navbar-nav navbar-right">
+									<a class="navbar-brand" href="#">
+										<i class="fa fa-user fa-2x fa-fw"></i> 
+										<span >{{studiesView.study}}</span> 
+									</a>
+								</div>
+							</div>
+							-->
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-4 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+							<div class="pull-right tab-header-item">
+								<a href="#" class="sortable tab-header-item-name ">
+									<span>Docteur</span>
+									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
+								</a>
+								<a href="#" class="sortable tab-header-item-name ">
+									<span>Accèss Diagnostic</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/radio's tab header !-->
+				<!--radio's tab content !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-4">
+										<i class="fa fa-file-photo-o fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+									<div class="pull-right tab-header-item">
+										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
+										<span class="meta-item item-info tab-header-item-name diagnostic">{{item.accessReport}}</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/radios' tab !-->
+			</div>
+			<!--/radios' tab's column !-->
+			<!-- radios list's column !-->
+			<div class="col-sm-2 column" ng-show="radiosView.list">
+				<!--radio's list header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{studiesView.study}}</span> <!--item-name -->
+								</a>
+							</div>
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-12 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/radios' list header !-->
+				<!--radios' list !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
+								<div class="row-fluid" >
+									<div class="col-sm-12">
+										<i class="fa fa-file-photo-o fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/radios' list!-->
+		</div>
+		<!--/RadiosView !-->
+		<!--RadioView !-->
+		<div  ng-show="singleRadioView.show">
+			<!--radio's tab's column !-->
+			<div class="col-sm-8 column" ><!--column studies -->
+				<!--radio's tab's header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cloudview-navbar">
+									<span class="sr-only">Toggle navigation</span>
+								</button>
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{radiosView.radio}}</span> <!--item-name -->
+								</a>
+							</div>
+							<div class="collapse navbar-collapse" id="cloudview-navbar">
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-list fa-lg fa-fw"></i><span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="#"><i class="fa fa-download fa-lg fa-fw"></i>Télécharger JPG</a></li>
+											<li><a href="#"><i class="fa fa-arrows-alt fa-lg fa-fw"></i>Zoomer</a></li>
+											<li><a href="#"><i class="fa fa-magic fa-lg fa-fw"></i>Luminance</a></li>
+											<li><a href="#"><i class="fa fa-lightbulb-o fa-lg fa-fw"></i>Contraste</a></li>
+											<li><a href="#"><i class="fa fa-arrows fa-lg fa-fw"></i>Déplacement</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/radio's tab header !-->
+				<!--radio's tab content !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<img src="assets/img/chat.jpg" style="width:70%;height:40%;margin:0 15% 0 15%"/>
+					</div>
+				</div>
+				<!--/radios' tab !-->
+			</div>
+			<!--/radios' tab's column !-->
+		</div>
+		<!--/RadioView !-->
+	</div>
+</div>
+     </div>
+</div>
