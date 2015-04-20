@@ -1,37 +1,30 @@
 package com.cloudview.dao;
+
 import javax.persistence.EntityManager;
 
-import com.cloudview.model.*;
+import com.cloudview.model.AppUser;
+import com.cloudview.model.Surgery;
 
-public class AppUserRepository {
-	public static void save(AppUser user){
+public class SurgeryRepository {
+	public static void save(Surgery s){
 		EntityManager em = EntityManagerProvider.getInstance().getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.merge(user);
+		em.merge(s);
 		em.getTransaction().commit();
 		em.close();
 	}
-	public static void delete(AppUser user){
+	public static void delete(Surgery s){
 		EntityManager em = EntityManagerProvider.getInstance().getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		em.remove(user);
+		em.remove(s);
 		em.getTransaction().commit();
 		em.close();
 	}
-	public static void deleteById(int id){
+	public static Surgery deleteById(int id){
 		EntityManager em = EntityManagerProvider.getInstance().getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
-		AppUser user = em.find(AppUser.class,id);
-		em.remove(user);
-		em.getTransaction().commit();
+		Surgery s = em.find(Surgery.class,id);
 		em.close();
+		return s;
 	}
-	public static AppUser findById(int id){
-		EntityManager em = EntityManagerProvider.getInstance().getEntityManagerFactory().createEntityManager();
-		em.getTransaction().begin();
-		AppUser user = em.find(AppUser.class,id);
-		em.close();
-		return user;
-	}
-	
 }

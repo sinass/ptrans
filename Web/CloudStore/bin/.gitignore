@@ -1,0 +1,10 @@
+/META-INF/
+/application.conf
+/assets/
+/com/
+/controllers/
+/routes
+/views/
+/ApplicationTest.class
+/IntegrationTest$1.class
+/IntegrationTest.class

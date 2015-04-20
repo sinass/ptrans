@@ -5,7 +5,7 @@ import javax.persistence.Persistence;
 
 public class EntityManagerProvider {
 	private static EntityManagerProvider singleton = new EntityManagerProvider();
-	private static String persistenceUnit = "cloudview";
+	private static String persistenceUnit = "cloudviewPersistenceUnit";
 	private  EntityManagerFactory emf;
 	private EntityManagerProvider(){
 		

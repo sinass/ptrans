@@ -1,7 +1,9 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.sql.Array;
 import java.util.List;
 
@@ -17,17 +19,18 @@ public class AppUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(unique=true, nullable=false)
 	private Integer id;
 
 	@Column(length=255)
-	private Array login;
+	private String login;
 
 	@Column(length=255)
-	private Array password;
+	private String password;
 
 	@Column(length=10)
-	private Array type;
+	private String type;
 
 	//bi-directional many-to-one association to Owner
 	@OneToMany(mappedBy="appUser")
@@ -52,27 +55,27 @@ public class AppUser implements Serializable {
 		this.id = id;
 	}
 
-	public Array getLogin() {
+	public String getLogin() {
 		return this.login;
 	}
 
-	public void setLogin(Array login) {
+	public void setLogin(String login) {
 		this.login = login;
 	}
 
-	public Array getPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 
-	public void setPassword(Array password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public Array getType() {
+	public String getType() {
 		return this.type;
 	}
 
-	public void setType(Array type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 
