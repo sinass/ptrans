@@ -27,4 +27,12 @@ public class SurgeryRepository {
 		em.close();
 		return s;
 	}
+	public static Surgery findById(int id){
+		EntityManager em = EntityManagerProvider.getInstance().getEntityManagerFactory().createEntityManager();
+		em.getTransaction().begin();
+		Surgery s = em.find(Surgery.class,id);
+		em.close();
+		return s;
+	}
+	
 }
