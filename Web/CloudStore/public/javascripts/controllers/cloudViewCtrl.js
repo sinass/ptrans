@@ -1,5 +1,5 @@
 angular.module("cloudView")
-.controller("cloudViewCtrl",function($scope){
+.controller("cloudViewCtrl",['$scope',function($scope){
     
 //****************************
 var menuView = new MenuView();
@@ -56,4 +56,4 @@ $scope.data = {
         ],
 };
       
-});
+}]);

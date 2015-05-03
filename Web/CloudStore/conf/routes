@@ -7,3 +7,17 @@ GET     /                           controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+# Add new veterinary
+GET     /veterinary/add/:surgeryMail            controllers.Application.addVeterinary(surgeryMail: String)
+# Delete a veterinary 
+POST     /veterinary/delete/:id                 controllers.Application.deleteVeterinary(id: Integer)
+# Find Veterinary by Id 
+GET      /veterinary/:id            controllers.Application.findVeterinary(id: Integer)
+# Add new surgery
+GET     /surgery/add               controllers.Application.addSurgery()
+# Delete a surgery
+POST     /surgery/delete/:id        controllers.Application.deleteSurgery(id: Integer)
+# Find surgery by Id 
+GET      /surgery/:id               controllers.Application.findSurgery(id: Integer)
+# Find user by login and password 
+GET      /authenticate/:login/:password     controllers.Application.authenticate(login: String,password: String)

@@ -34,5 +34,12 @@ public class SurgeryRepository {
 		em.close();
 		return s;
 	}
+	public static Surgery findByMail(String mail){
+		EntityManager em = EntityManagerProvider.getInstance().getEntityManagerFactory().createEntityManager();
+		em.getTransaction().begin();
+		Surgery s = em.find(Surgery.class,mail);
+		em.close();
+		return s;
+	}
 	
 }
