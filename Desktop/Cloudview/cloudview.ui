@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Cloudview</class>
+ <widget class="QMainWindow" name="Cloudview">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>624</width>
+    <height>338</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cloudview</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextUnderIcon</enum>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QFrame" name="frameAccount">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QPushButton" name="btnSouscription">
+             <property name="text">
+              <string>Demander une souscription</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnClvFolder">
+             <property name="text">
+              <string>Changer de dossier CloudView</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+        <zorder>frameConnected</zorder>
+        <zorder>verticalLayoutWidget</zorder>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QFrame" name="frameConnected">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionCompte"/>
+   <addaction name="actionFichiers"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionCompte">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../Downloads/MyIcons/png/user168.png</normaloff>../../../../../Downloads/MyIcons/png/user168.png</iconset>
+   </property>
+   <property name="text">
+    <string>Compte</string>
+   </property>
+   <property name="toolTip">
+    <string>Les paramètres de Compte</string>
+   </property>
+  </action>
+  <action name="actionFichiers">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../../../Downloads/MyIcons/png/send4.png</normaloff>../../../../../Downloads/MyIcons/png/send4.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fichiers</string>
+   </property>
+   <property name="toolTip">
+    <string>mes fichiers</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
