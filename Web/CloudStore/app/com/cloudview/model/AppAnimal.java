@@ -35,9 +35,17 @@ public class AppAnimal implements Serializable {
 	@OneToMany(mappedBy="appAnimal")
 	private List<AppAnimalFile> appAnimalFiles;
 
-	//bi-directional many-to-one association to AppOwnerHasAnimal
-	@OneToMany(mappedBy="appAnimal")
-	private List<AppOwnerHasAnimal> appOwnerHasAnimals;
+	//bi-directional one-to-one association to AppOwnerHasAnimal
+	@OneToOne(mappedBy="appAnimal")
+	private AppOwnerHasAnimal appOwnerHasAnimal;
+
+	public AppOwnerHasAnimal getAppOwnerHasAnimal() {
+		return appOwnerHasAnimal;
+	}
+
+	public void setAppOwnerHasAnimal(AppOwnerHasAnimal appOwnerHasAnimal) {
+		this.appOwnerHasAnimal = appOwnerHasAnimal;
+	}
 
 	public AppAnimal() {
 	}
@@ -118,28 +126,6 @@ public class AppAnimal implements Serializable {
 		appAnimalFile.setAppAnimal(null);
 
 		return appAnimalFile;
-	}
-
-	public List<AppOwnerHasAnimal> getAppOwnerHasAnimals() {
-		return this.appOwnerHasAnimals;
-	}
-
-	public void setAppOwnerHasAnimals(List<AppOwnerHasAnimal> appOwnerHasAnimals) {
-		this.appOwnerHasAnimals = appOwnerHasAnimals;
-	}
-
-	public AppOwnerHasAnimal addAppOwnerHasAnimal(AppOwnerHasAnimal appOwnerHasAnimal) {
-		getAppOwnerHasAnimals().add(appOwnerHasAnimal);
-		appOwnerHasAnimal.setAppAnimal(this);
-
-		return appOwnerHasAnimal;
-	}
-
-	public AppOwnerHasAnimal removeAppOwnerHasAnimal(AppOwnerHasAnimal appOwnerHasAnimal) {
-		getAppOwnerHasAnimals().remove(appOwnerHasAnimal);
-		appOwnerHasAnimal.setAppAnimal(null);
-
-		return appOwnerHasAnimal;
 	}
 
 }

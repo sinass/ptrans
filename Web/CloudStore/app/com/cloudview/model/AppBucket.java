@@ -2,7 +2,6 @@ package com.cloudview.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -22,8 +21,16 @@ public class AppBucket implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to AppVeterinary
-	@OneToMany(mappedBy="appBucket")
-	private List<AppVeterinary> appVeterinaries;
+	@OneToOne(mappedBy="appBucket")
+	private AppVeterinary appVeterinarie;
+
+	public AppVeterinary getAppVeterinarie() {
+		return appVeterinarie;
+	}
+
+	public void setAppVeterinarie(AppVeterinary appVeterinarie) {
+		this.appVeterinarie = appVeterinarie;
+	}
 
 	public AppBucket() {
 	}
@@ -42,28 +49,6 @@ public class AppBucket implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<AppVeterinary> getAppVeterinaries() {
-		return this.appVeterinaries;
-	}
-
-	public void setAppVeterinaries(List<AppVeterinary> appVeterinaries) {
-		this.appVeterinaries = appVeterinaries;
-	}
-
-	public AppVeterinary addAppVeterinary(AppVeterinary appVeterinary) {
-		getAppVeterinaries().add(appVeterinary);
-		appVeterinary.setAppBucket(this);
-
-		return appVeterinary;
-	}
-
-	public AppVeterinary removeAppVeterinary(AppVeterinary appVeterinary) {
-		getAppVeterinaries().remove(appVeterinary);
-		appVeterinary.setAppBucket(null);
-
-		return appVeterinary;
 	}
 
 }

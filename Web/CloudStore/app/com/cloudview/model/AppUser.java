@@ -36,10 +36,15 @@ public class AppUser implements Serializable {
 	@OneToMany(mappedBy="appUser")
 	private List<AppNotification> appNotifications;
 
-	//bi-directional many-to-one association to AppVeterinary
-	@OneToMany(mappedBy="appUser")
-	private List<AppVeterinary> appVeterinaries;
+	//bi-directional one-to-one association to AppVeterinary
+	@OneToOne(mappedBy="appUser")
+	private AppVeterinary appVeterinarie;
+	
+	//bi-directional one-to-one association to AppVeterinary
+	@OneToOne(mappedBy="appUser")
+	private AppOwner appOwner;
 
+	
 	public AppUser() {
 	}
 
@@ -127,26 +132,20 @@ public class AppUser implements Serializable {
 		return appNotification;
 	}
 
-	public List<AppVeterinary> getAppVeterinaries() {
-		return this.appVeterinaries;
+	public AppVeterinary getAppVeterinarie() {
+		return this.appVeterinarie;
 	}
 
-	public void setAppVeterinaries(List<AppVeterinary> appVeterinaries) {
-		this.appVeterinaries = appVeterinaries;
+	public void setAppVeterinarie(AppVeterinary appVeterinarie) {
+		this.appVeterinarie = appVeterinarie;
+	}
+	
+	public AppOwner getAppOwner() {
+		return appOwner;
 	}
 
-	public AppVeterinary addAppVeterinary(AppVeterinary appVeterinary) {
-		getAppVeterinaries().add(appVeterinary);
-		appVeterinary.setAppUser(this);
-
-		return appVeterinary;
-	}
-
-	public AppVeterinary removeAppVeterinary(AppVeterinary appVeterinary) {
-		getAppVeterinaries().remove(appVeterinary);
-		appVeterinary.setAppUser(null);
-
-		return appVeterinary;
+	public void setAppOwner(AppOwner appOwner) {
+		this.appOwner = appOwner;
 	}
 
 }

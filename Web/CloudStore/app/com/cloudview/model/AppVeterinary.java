@@ -34,15 +34,31 @@ public class AppVeterinary implements Serializable {
 	private List<AppExamination> appExaminations;
 
 	//bi-directional many-to-one association to AppResilliation
-	@OneToMany(mappedBy="appVeterinary")
-	private List<AppResilliation> appResilliations;
+	@OneToOne(mappedBy="appVeterinary")
+	private AppResilliation appResilliation;
 
-	//bi-directional many-to-one association to AppSouscription
-	@OneToMany(mappedBy="appVeterinary")
-	private List<AppSouscription> appSouscriptions;
+	public AppResilliation getAppResilliation() {
+		return appResilliation;
+	}
 
-	//bi-directional many-to-one association to AppBucket
-	@ManyToOne
+	public void setAppResilliation(AppResilliation appResilliation) {
+		this.appResilliation = appResilliation;
+	}
+
+	//bi-directional one-to-one association to AppSouscription
+	@OneToOne(mappedBy="appVeterinary")
+	private AppSouscription appSouscription;
+
+	public AppSouscription getAppSouscription() {
+		return appSouscription;
+	}
+
+	public void setAppSouscription(AppSouscription appSouscription) {
+		this.appSouscription = appSouscription;
+	}
+
+	//bi-directional one-to-one association to AppBucket
+	@OneToOne
 	@JoinColumn(name="bucket_id")
 	private AppBucket appBucket;
 
@@ -51,8 +67,8 @@ public class AppVeterinary implements Serializable {
 	@JoinColumn(name="surgery_id")
 	private AppSurgery appSurgery;
 
-	//bi-directional many-to-one association to AppUser
-	@ManyToOne
+	//bi-directional one-to-one association to AppUser
+	@OneToOne
 	@JoinColumn(name="user_id")
 	private AppUser appUser;
 
@@ -127,49 +143,6 @@ public class AppVeterinary implements Serializable {
 		return appExamination;
 	}
 
-	public List<AppResilliation> getAppResilliations() {
-		return this.appResilliations;
-	}
-
-	public void setAppResilliations(List<AppResilliation> appResilliations) {
-		this.appResilliations = appResilliations;
-	}
-
-	public AppResilliation addAppResilliation(AppResilliation appResilliation) {
-		getAppResilliations().add(appResilliation);
-		appResilliation.setAppVeterinary(this);
-
-		return appResilliation;
-	}
-
-	public AppResilliation removeAppResilliation(AppResilliation appResilliation) {
-		getAppResilliations().remove(appResilliation);
-		appResilliation.setAppVeterinary(null);
-
-		return appResilliation;
-	}
-
-	public List<AppSouscription> getAppSouscriptions() {
-		return this.appSouscriptions;
-	}
-
-	public void setAppSouscriptions(List<AppSouscription> appSouscriptions) {
-		this.appSouscriptions = appSouscriptions;
-	}
-
-	public AppSouscription addAppSouscription(AppSouscription appSouscription) {
-		getAppSouscriptions().add(appSouscription);
-		appSouscription.setAppVeterinary(this);
-
-		return appSouscription;
-	}
-
-	public AppSouscription removeAppSouscription(AppSouscription appSouscription) {
-		getAppSouscriptions().remove(appSouscription);
-		appSouscription.setAppVeterinary(null);
-
-		return appSouscription;
-	}
 
 	public AppBucket getAppBucket() {
 		return this.appBucket;

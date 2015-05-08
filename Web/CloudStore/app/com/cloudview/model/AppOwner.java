@@ -1,7 +1,9 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -36,12 +38,14 @@ public class AppOwner implements Serializable {
 	@Column(name="post_code")
 	private Integer postCode;
 
-	@Column(name="user_id")
-	private Integer userId;
 
 	//bi-directional many-to-one association to AppOwnerHasAnimal
 	@OneToMany(mappedBy="appOwner")
 	private List<AppOwnerHasAnimal> appOwnerHasAnimals;
+	
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private AppUser appUser;
 
 	public AppOwner() {
 	}
@@ -108,14 +112,6 @@ public class AppOwner implements Serializable {
 
 	public void setPostCode(Integer postCode) {
 		this.postCode = postCode;
-	}
-
-	public Integer getUserId() {
-		return this.userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
 	}
 
 	public List<AppOwnerHasAnimal> getAppOwnerHasAnimals() {

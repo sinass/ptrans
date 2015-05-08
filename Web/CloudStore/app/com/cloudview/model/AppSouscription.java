@@ -25,7 +25,7 @@ public class AppSouscription implements Serializable {
 	private Integer status;
 
 	//bi-directional many-to-one association to AppVeterinary
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="veterinary_id")
 	private AppVeterinary appVeterinary;
 

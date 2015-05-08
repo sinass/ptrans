@@ -19,7 +19,7 @@ public class AppOwnerHasAnimal implements Serializable {
 	private Integer id;
 
 	//bi-directional many-to-one association to AppAnimal
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="animal_id")
 	private AppAnimal appAnimal;
 
