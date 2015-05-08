@@ -6,12 +6,13 @@ import java.util.List;
 
 
 /**
- * The persistent class for the surgery database table.
+ * The persistent class for the app_surgery database table.
  * 
  */
 @Entity
-@NamedQuery(name="Surgery.findAll", query="SELECT s FROM Surgery s")
-public class Surgery implements Serializable {
+@Table(name="app_surgery")
+@NamedQuery(name="AppSurgery.findAll", query="SELECT a FROM AppSurgery a")
+public class AppSurgery implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,11 +34,11 @@ public class Surgery implements Serializable {
 	@Column(name="post_code")
 	private Integer postCode;
 
-	//bi-directional many-to-one association to Veterinary
-	@OneToMany(mappedBy="surgery")
-	private List<Veterinary> veterinaries;
+	//bi-directional many-to-one association to AppVeterinary
+	@OneToMany(mappedBy="appSurgery")
+	private List<AppVeterinary> appVeterinaries;
 
-	public Surgery() {
+	public AppSurgery() {
 	}
 
 	public Integer getId() {
@@ -104,26 +105,26 @@ public class Surgery implements Serializable {
 		this.postCode = postCode;
 	}
 
-	public List<Veterinary> getVeterinaries() {
-		return this.veterinaries;
+	public List<AppVeterinary> getAppVeterinaries() {
+		return this.appVeterinaries;
 	}
 
-	public void setVeterinaries(List<Veterinary> veterinaries) {
-		this.veterinaries = veterinaries;
+	public void setAppVeterinaries(List<AppVeterinary> appVeterinaries) {
+		this.appVeterinaries = appVeterinaries;
 	}
 
-	public Veterinary addVeterinary(Veterinary veterinary) {
-		getVeterinaries().add(veterinary);
-		veterinary.setSurgery(this);
+	public AppVeterinary addAppVeterinary(AppVeterinary appVeterinary) {
+		getAppVeterinaries().add(appVeterinary);
+		appVeterinary.setAppSurgery(this);
 
-		return veterinary;
+		return appVeterinary;
 	}
 
-	public Veterinary removeVeterinary(Veterinary veterinary) {
-		getVeterinaries().remove(veterinary);
-		veterinary.setSurgery(null);
+	public AppVeterinary removeAppVeterinary(AppVeterinary appVeterinary) {
+		getAppVeterinaries().remove(appVeterinary);
+		appVeterinary.setAppSurgery(null);
 
-		return veterinary;
+		return appVeterinary;
 	}
 
 }

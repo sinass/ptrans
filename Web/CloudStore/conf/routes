@@ -20,4 +20,4 @@ POST     /surgery/delete/:id        controllers.Application.deleteSurgery(id: In
 # Find surgery by Id 
 GET      /surgery/:id               controllers.Application.findSurgery(id: Integer)
 # Find user by login and password 
-GET      /authenticate/:login/:password     controllers.Application.authenticate(login: String,password: String)
+GET      /authenticate/:login/:password     controllers.UserCtrl.authenticate(login: String,password: String)

@@ -27,7 +27,7 @@ $scope.singleRadioView = singleRadioView;
 $scope.data = {
     menu:{
         user:{Lastname:"Sinayoko",FirstName:"Mahamadou",email:"sinayoko.mahamadou@yahoo.fr",type:"user"},
-        content:[{name:"Personal Folder",link:"#"},{name:"Personal Folder",link:"#"}]
+        content:[{name:"Personal Folder",link:"#"}]
     },
     animals:[
         {name:"Skubidoo-Chien",newStudy:"oui",doctor:"Dr-Paula"},

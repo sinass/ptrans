@@ -6,19 +6,18 @@ import java.util.List;
 
 
 /**
- * The persistent class for the owner database table.
+ * The persistent class for the app_owner database table.
  * 
  */
 @Entity
-@NamedQuery(name="Owner.findAll", query="SELECT o FROM Owner o")
-public class Owner implements Serializable {
+@Table(name="app_owner")
+@NamedQuery(name="AppOwner.findAll", query="SELECT a FROM AppOwner a")
+public class AppOwner implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-
-	private String adress;
 
 	private String city;
 
@@ -37,15 +36,14 @@ public class Owner implements Serializable {
 	@Column(name="post_code")
 	private Integer postCode;
 
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	private User user;
+	@Column(name="user_id")
+	private Integer userId;
 
-	//bi-directional many-to-one association to OwnerHasAnimal
-	@OneToMany(mappedBy="owner")
-	private List<OwnerHasAnimal> ownerHasAnimals;
+	//bi-directional many-to-one association to AppOwnerHasAnimal
+	@OneToMany(mappedBy="appOwner")
+	private List<AppOwnerHasAnimal> appOwnerHasAnimals;
 
-	public Owner() {
+	public AppOwner() {
 	}
 
 	public Integer getId() {
@@ -54,14 +52,6 @@ public class Owner implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getAdress() {
-		return this.adress;
-	}
-
-	public void setAdress(String adress) {
-		this.adress = adress;
 	}
 
 	public String getCity() {
@@ -120,34 +110,34 @@ public class Owner implements Serializable {
 		this.postCode = postCode;
 	}
 
-	public User getUser() {
-		return this.user;
+	public Integer getUserId() {
+		return this.userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public List<OwnerHasAnimal> getOwnerHasAnimals() {
-		return this.ownerHasAnimals;
+	public List<AppOwnerHasAnimal> getAppOwnerHasAnimals() {
+		return this.appOwnerHasAnimals;
 	}
 
-	public void setOwnerHasAnimals(List<OwnerHasAnimal> ownerHasAnimals) {
-		this.ownerHasAnimals = ownerHasAnimals;
+	public void setAppOwnerHasAnimals(List<AppOwnerHasAnimal> appOwnerHasAnimals) {
+		this.appOwnerHasAnimals = appOwnerHasAnimals;
 	}
 
-	public OwnerHasAnimal addOwnerHasAnimal(OwnerHasAnimal ownerHasAnimal) {
-		getOwnerHasAnimals().add(ownerHasAnimal);
-		ownerHasAnimal.setOwner(this);
+	public AppOwnerHasAnimal addAppOwnerHasAnimal(AppOwnerHasAnimal appOwnerHasAnimal) {
+		getAppOwnerHasAnimals().add(appOwnerHasAnimal);
+		appOwnerHasAnimal.setAppOwner(this);
 
-		return ownerHasAnimal;
+		return appOwnerHasAnimal;
 	}
 
-	public OwnerHasAnimal removeOwnerHasAnimal(OwnerHasAnimal ownerHasAnimal) {
-		getOwnerHasAnimals().remove(ownerHasAnimal);
-		ownerHasAnimal.setOwner(null);
+	public AppOwnerHasAnimal removeAppOwnerHasAnimal(AppOwnerHasAnimal appOwnerHasAnimal) {
+		getAppOwnerHasAnimals().remove(appOwnerHasAnimal);
+		appOwnerHasAnimal.setAppOwner(null);
 
-		return ownerHasAnimal;
+		return appOwnerHasAnimal;
 	}
 
 }

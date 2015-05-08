@@ -3,16 +3,12 @@ angular.module("cloudView")
 .service("loginService",['$resource','loginURL',function($resource,loginURL){
 	
 	this.login = function(user){
-		var status = false;
 		var userRS = $resource(loginURL+":login/:password");
 		var u = userRS.get({login:user.login,password:user.password},function(){
-			console.log("get ok");
+			console.log(u.login+" get ok");
 		},function(){
-			console.log("get non ok");
+			console.log("get non ok:erreur");
 		});
-		if(u.id!==undefined) status = true;
-		else status = false;
-		console.log("status:"+this.status);
-		return this.status;
+		return u;
 	}
 }]);

@@ -6,12 +6,13 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the souscription database table.
+ * The persistent class for the app_resilliation database table.
  * 
  */
 @Entity
-@NamedQuery(name="Souscription.findAll", query="SELECT s FROM Souscription s")
-public class Souscription implements Serializable {
+@Table(name="app_resilliation")
+@NamedQuery(name="AppResilliation.findAll", query="SELECT a FROM AppResilliation a")
+public class AppResilliation implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,12 +24,12 @@ public class Souscription implements Serializable {
 
 	private Integer status;
 
-	//bi-directional many-to-one association to Veterinary
+	//bi-directional many-to-one association to AppVeterinary
 	@ManyToOne
-	@JoinColumn(name="id_veterinary")
-	private Veterinary veterinary;
+	@JoinColumn(name="veterinary_id")
+	private AppVeterinary appVeterinary;
 
-	public Souscription() {
+	public AppResilliation() {
 	}
 
 	public Integer getId() {
@@ -55,12 +56,12 @@ public class Souscription implements Serializable {
 		this.status = status;
 	}
 
-	public Veterinary getVeterinary() {
-		return this.veterinary;
+	public AppVeterinary getAppVeterinary() {
+		return this.appVeterinary;
 	}
 
-	public void setVeterinary(Veterinary veterinary) {
-		this.veterinary = veterinary;
+	public void setAppVeterinary(AppVeterinary appVeterinary) {
+		this.appVeterinary = appVeterinary;
 	}
 
 }

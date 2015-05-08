@@ -6,12 +6,13 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the desouscription database table.
+ * The persistent class for the app_souscription database table.
  * 
  */
 @Entity
-@NamedQuery(name="Desouscription.findAll", query="SELECT d FROM Desouscription d")
-public class Desouscription implements Serializable {
+@Table(name="app_souscription")
+@NamedQuery(name="AppSouscription.findAll", query="SELECT a FROM AppSouscription a")
+public class AppSouscription implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,12 +24,12 @@ public class Desouscription implements Serializable {
 
 	private Integer status;
 
-	//bi-directional many-to-one association to Veterinary
+	//bi-directional many-to-one association to AppVeterinary
 	@ManyToOne
-	@JoinColumn(name="id_veterinary")
-	private Veterinary veterinary;
+	@JoinColumn(name="veterinary_id")
+	private AppVeterinary appVeterinary;
 
-	public Desouscription() {
+	public AppSouscription() {
 	}
 
 	public Integer getId() {
@@ -55,12 +56,12 @@ public class Desouscription implements Serializable {
 		this.status = status;
 	}
 
-	public Veterinary getVeterinary() {
-		return this.veterinary;
+	public AppVeterinary getAppVeterinary() {
+		return this.appVeterinary;
 	}
 
-	public void setVeterinary(Veterinary veterinary) {
-		this.veterinary = veterinary;
+	public void setAppVeterinary(AppVeterinary appVeterinary) {
+		this.appVeterinary = appVeterinary;
 	}
 
 }

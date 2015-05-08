@@ -13,8 +13,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-resource.min.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
         <script>
-			angular.module("cloudView",['ngRoute','ngResource']);
+			angular.module("cloudView",['ngRoute','ngResource','ui.bootstrap']);
 		</script>
         <script type="text/javascript" src="@routes.Assets.at("javascripts/app.js")"></script>
         <script type="text/javascript" src="@routes.Assets.at("javascripts/route_config.js")"></script>
@@ -49,7 +50,5 @@
     </head>
     <body>
         <ng-view></ng-view>
-        <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
-		<script type="text/javascript" src="@routes.Assets.at("librairies/bootstrap-3.3.2/js/bootstrap.min.js")"></script>
     </body>
 </html>
