@@ -1,7 +1,10 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 /**
@@ -22,6 +25,7 @@ public class AppBucket implements Serializable {
 
 	//bi-directional many-to-one association to AppVeterinary
 	@OneToOne(mappedBy="appBucket")
+	@JsonManagedReference
 	private AppVeterinary appVeterinarie;
 
 	public AppVeterinary getAppVeterinarie() {

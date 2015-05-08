@@ -1,7 +1,11 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.Date;
 
 
@@ -27,6 +31,7 @@ public class AppSouscription implements Serializable {
 	//bi-directional many-to-one association to AppVeterinary
 	@OneToOne
 	@JoinColumn(name="veterinary_id")
+	@JsonBackReference
 	private AppVeterinary appVeterinary;
 
 	public AppSouscription() {

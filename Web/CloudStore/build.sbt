@@ -13,5 +13,6 @@ libraryDependencies ++= Seq(
   javaWs,
   javaJpa,
   javaCore,
-  "org.eclipse.persistence" % "eclipselink" % "2.5.2"
+  "org.eclipse.persistence" % "eclipselink" % "2.5.2",
+  "com.fasterxml.jackson.core" % "jackson-core" % "2.5.3"
 )

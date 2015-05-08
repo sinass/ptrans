@@ -1,7 +1,12 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 
@@ -22,15 +27,18 @@ public class AppAnimalFile implements Serializable {
 	//bi-directional many-to-one association to AppAnimal
 	@ManyToOne
 	@JoinColumn(name="animal_id")
+	@JsonBackReference
 	private AppAnimal appAnimal;
 
 	//bi-directional many-to-one association to AppVeterinary
 	@ManyToOne
 	@JoinColumn(name="veterinary_id")
+	@JsonBackReference
 	private AppVeterinary appVeterinary;
 
 	//bi-directional many-to-one association to AppStudy
 	@OneToMany(mappedBy="appAnimalFile")
+	@JsonManagedReference
 	private List<AppStudy> appStudies;
 
 	public AppAnimalFile() {

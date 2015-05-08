@@ -1,7 +1,12 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 
@@ -27,14 +32,17 @@ public class AppVeterinary implements Serializable {
 
 	//bi-directional many-to-one association to AppAnimalFile
 	@OneToMany(mappedBy="appVeterinary")
+	@JsonManagedReference
 	private List<AppAnimalFile> appAnimalFiles;
 
 	//bi-directional many-to-one association to AppExamination
 	@OneToMany(mappedBy="appVeterinary")
+	@JsonManagedReference
 	private List<AppExamination> appExaminations;
 
 	//bi-directional many-to-one association to AppResilliation
 	@OneToOne(mappedBy="appVeterinary")
+	@JsonManagedReference
 	private AppResilliation appResilliation;
 
 	public AppResilliation getAppResilliation() {
@@ -47,6 +55,7 @@ public class AppVeterinary implements Serializable {
 
 	//bi-directional one-to-one association to AppSouscription
 	@OneToOne(mappedBy="appVeterinary")
+	@JsonManagedReference
 	private AppSouscription appSouscription;
 
 	public AppSouscription getAppSouscription() {
@@ -60,16 +69,19 @@ public class AppVeterinary implements Serializable {
 	//bi-directional one-to-one association to AppBucket
 	@OneToOne
 	@JoinColumn(name="bucket_id")
+	@JsonBackReference
 	private AppBucket appBucket;
 
 	//bi-directional many-to-one association to AppSurgery
 	@ManyToOne
 	@JoinColumn(name="surgery_id")
+	@JsonBackReference
 	private AppSurgery appSurgery;
 
 	//bi-directional one-to-one association to AppUser
 	@OneToOne
 	@JoinColumn(name="user_id")
+	@JsonBackReference
 	private AppUser appUser;
 
 	public AppVeterinary() {

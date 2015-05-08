@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 
@@ -41,10 +44,12 @@ public class AppOwner implements Serializable {
 
 	//bi-directional many-to-one association to AppOwnerHasAnimal
 	@OneToMany(mappedBy="appOwner")
+	@JsonManagedReference
 	private List<AppOwnerHasAnimal> appOwnerHasAnimals;
 	
 	@OneToOne
 	@JoinColumn(name="user_id")
+	@JsonBackReference
 	private AppUser appUser;
 
 	public AppOwner() {

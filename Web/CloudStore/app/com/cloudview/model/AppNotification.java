@@ -1,7 +1,10 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 /**
@@ -26,6 +29,7 @@ public class AppNotification implements Serializable {
 	//bi-directional many-to-one association to AppUser
 	@ManyToOne
 	@JoinColumn(name="user_id")
+	@JsonBackReference
 	private AppUser appUser;
 
 	public AppNotification() {

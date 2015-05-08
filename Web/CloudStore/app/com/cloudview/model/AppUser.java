@@ -1,7 +1,11 @@
 package com.cloudview.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 
@@ -30,18 +34,22 @@ public class AppUser implements Serializable {
 
 	//bi-directional many-to-one association to AppImageSharedWith
 	@OneToMany(mappedBy="appUser")
+	@JsonManagedReference
 	private List<AppImageSharedWith> appImageSharedWiths;
 
 	//bi-directional many-to-one association to AppNotification
 	@OneToMany(mappedBy="appUser")
+	@JsonManagedReference
 	private List<AppNotification> appNotifications;
 
 	//bi-directional one-to-one association to AppVeterinary
 	@OneToOne(mappedBy="appUser")
+	@JsonManagedReference
 	private AppVeterinary appVeterinarie;
 	
 	//bi-directional one-to-one association to AppVeterinary
 	@OneToOne(mappedBy="appUser")
+	@JsonManagedReference
 	private AppOwner appOwner;
 
 	
