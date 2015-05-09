@@ -1,6 +1,16 @@
 angular.module("cloudView")
-.controller("cloudViewCtrl",['$scope',function($scope){
-    
+.controller("cloudViewCtrl",['$scope','$cookieStore','$rootScope','$route','visor','$location',function($scope,$cookieStore,$rootScope,$route,visor,$location){
+
+	/*code de visor */
+	$scope.$route = $route;
+	$scope.logOut = function(){
+		$cookieStore.remove("user");
+		$rootScope.user = undefined;
+		visor.setUnauthenticated();
+		$location.url("/home");
+	};
+	   
+	
 //****************************
 var menuView = new MenuView();
 var animalView = new AnimalView();
@@ -21,7 +31,8 @@ $scope.animalView = animalView;
 $scope.studiesView = studiesView;
 $scope.radiosView = radiosView;
 $scope.singleRadioView = singleRadioView;
-   
+
+
    /*************** selectedRadioCtrl ******/
     
 $scope.data = {
