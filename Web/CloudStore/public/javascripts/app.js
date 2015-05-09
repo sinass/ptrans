@@ -44,7 +44,16 @@ function StudiesView(){
 		this.study = study;
 		this.viewManager.StudySelected();
 		//alert('studies '+this.tab+' '+this.list);
-	}
+	};
+};
+
+function ExaminationsView(){
+	this.show = false;
+	this.ExaminationSelected = function(examination){
+		this.examination = examination;
+		this.viewManager.ExaminationSelected();
+		//alert('studies '+this.tab+' '+this.list);
+	};
 };
 
 function RadiosView(){
@@ -53,7 +62,7 @@ function RadiosView(){
 		this.radio = radio;
 		this.viewManager.RadioSelected();
 		//alert('radio '+this.tab+' '+this.list);
-	}
+	};
 };
 
 function SingleRadioView(viewManager){
@@ -63,14 +72,16 @@ function SingleRadioView(viewManager){
 MenuView.prototype = new AbstractView();
 AnimalView.prototype = new AbstractView();
 StudiesView.prototype = new AbstractView();
+ExaminationsView.prototype = new AbstractView();
 RadiosView.prototype = new AbstractView();
 SingleRadioView.prototype = new AbstractView();
 
 //this class manages views
-function ViewManager(menuView,animalView,studiesView,radiosView,singleRadioView){
+function ViewManager(menuView,animalView,studiesView,examinationView,radiosView,singleRadioView){
 	this.menuView = menuView;
 	this.animalView = animalView;
 	this.studiesView = studiesView;
+	this.examinationsView = examinationView;
 	this.radiosView = radiosView;
 	this.singleRadioView = singleRadioView;
 };
@@ -87,6 +98,10 @@ ViewManager.prototype.SetStudiesView = function(studiesView){
 	this.studiesView = studiesView;
 };
 
+ViewManager.prototype.SetExaminationsView = function(examinationsView){
+	this.examinationsView = examinationsView;
+};
+
 ViewManager.prototype.SetRadiosView = function(radiosView){
 	this.radiosView = radiosView;
 };
@@ -98,6 +113,7 @@ ViewManager.prototype.SetSingleRadioView = function(singleRadioView){
 ViewManager.prototype.AnimalSelected = function(){
 	this.menuView.SetShow(true);
 	this.studiesView.SetShow(true);
+	this.examinationsView.SetShow(false);
 	this.radiosView.SetShow(false);
 	this.singleRadioView.SetShow(false);
 	this.studiesView.ShowTab();
@@ -107,15 +123,28 @@ ViewManager.prototype.AnimalSelected = function(){
 ViewManager.prototype.StudySelected = function(){
 	this.menuView.SetShow(false);
 	this.singleRadioView.SetShow(false);
+	this.examinationsView.SetShow(true);
 	this.animalView.SetShow(true);
+	this.radiosView.SetShow(false);
+	this.examinationsView.ShowTab();
+	this.studiesView.ShowList();
+};
+
+ViewManager.prototype.ExaminationSelected = function(){
+	this.menuView.SetShow(false);
+	this.singleRadioView.SetShow(false);
+	this.studiesView.SetShow(true);
+	this.animalView.SetShow(false);
 	this.radiosView.SetShow(true);
 	this.radiosView.ShowTab();
-	this.studiesView.ShowList();
+	this.examinationsView.ShowList();
 };
 
 ViewManager.prototype.RadioSelected = function(){
 	this.menuView.SetShow(false);
 	this.singleRadioView.SetShow(true);
+	this.examinationsView.SetShow(true);
 	this.animalView.SetShow(false);
+	this.studiesView.SetShow(false);
 	this.radiosView.ShowList();
 };

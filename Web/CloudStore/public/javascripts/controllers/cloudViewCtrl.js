@@ -17,11 +17,13 @@ var animalView = new AnimalView();
 var studiesView = new StudiesView();
 var radiosView = new RadiosView();
 var singleRadioView = new SingleRadioView();
-var viewManager = new ViewManager(menuView,animalView,studiesView,radiosView,singleRadioView);
+var examinationsView = new ExaminationsView();
+var viewManager = new ViewManager(menuView,animalView,studiesView,examinationsView,radiosView,singleRadioView);
 //****************************
 menuView.SetViewManager(viewManager);
 animalView.SetViewManager(viewManager);
 studiesView.SetViewManager(viewManager);
+examinationsView.SetViewManager(viewManager);
 radiosView.SetViewManager(viewManager);
 singleRadioView.SetViewManager(viewManager);
 
@@ -29,6 +31,7 @@ singleRadioView.SetViewManager(viewManager);
 $scope.menuView = menuView;
 $scope.animalView = animalView;
 $scope.studiesView = studiesView;
+$scope.examinationsView = examinationsView;
 $scope.radiosView = radiosView;
 $scope.singleRadioView = singleRadioView;
 

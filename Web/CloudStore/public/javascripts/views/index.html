@@ -306,6 +306,134 @@
 				<!--/studies list!-->
 		</div>
 		<!-- studiesView !-->
+		</div>
+		
+		<!-- ExaminationsView !-->
+		<div  ng-show="examinationsView.show">
+			<!--examinations tab's column !-->
+			<div class="col-sm-8 column"  ng-show="examinationsView.tab"><!--column studies -->
+				<!--examinations tab's header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cloudview-navbar">
+									<span class="sr-only">Toggle navigation</span>
+								</button>
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{studiesView.study}}</span> <!--item-name -->
+								</a>
+							</div>
+							<div class="collapse navbar-collapse" id="cloudview-navbar">
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Menu <span class="caret"></span></a>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+											<li><a href="#">Action</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div><!-- /.navbar-collapse -->
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-4 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+							<div class="pull-right tab-header-item">
+								<a href="#" class="sortable tab-header-item-name diagnostic" >
+									<span>Accès diagnostic</span>
+									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
+								</a>
+								<a href="#" class="sortable tab-header-item-name docteur">
+									<span>Docteur</span>
+									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/examinations tab header !-->
+				<!--examinations tab content !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-4">
+										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+									<div class="pull-right tab-header-item">
+										<span class="meta-item item-info tab-header-item-name diagnostic ">{{item.accessReport}}</span>
+										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/examinations tab !-->
+			</div>
+			<!--/examinations tab's column !-->
+			<!-- examinations list's column !-->
+			<div class="col-sm-2 column" ng-show="examinationsView.list">
+				<!--studies list header !-->
+				<div class="row-fluid" > <!--column nav-row -->
+					<!--navbar-->
+					<nav class="navbar navbar-default column-menu">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">
+										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
+										<span >{{studiesView.study}}</span> <!--item-name -->
+								</a>
+							</div>
+						</div><!-- /.container-fluid -->
+						<div class="row-fluid item-header">
+							<div class="col-sm-12 ">
+								<a href="#" class="sortable active">
+									<span>Nom</span>
+									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
+								</a>
+							</div>
+						</div>
+					</nav><!-- /.navbar -->
+				</div>
+				<!--/examinations' list header !-->
+				<!--examinations' list !-->
+				<div class="row-fluid" > <!--column content-row -->
+					<div class="col-sm-12 column-content-container">
+						<ul class="list-group column-content"><!--items -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
+								<div class="row-fluid">
+									<div class="col-sm-12">
+										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.date}}</span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--/examinations list!-->
+		</div>
+		<!-- ExaminationsView !-->
+		</div>
+		
 		<!--RadiosView !-->
 		<div  ng-show="radiosView.show">
 			<!--radio's tab's column !-->
@@ -321,7 +449,7 @@
 								</button>
 								<a class="navbar-brand" href="#">
 										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
-										<span >{{studiesView.study}}</span> <!--item-name -->
+										<span >{{examinationsView.examination}}</span> <!--item-name -->
 								</a>
 							</div>
 						<!--<div class="collapse navbar-collapse" id="cloudview-navbar">
@@ -390,7 +518,7 @@
 							<div class="navbar-header">
 								<a class="navbar-brand" href="#">
 										<i class="fa fa-folder-open fa-2x fa-fw"></i> <!--folder-icon -->
-										<span >{{studiesView.study}}</span> <!--item-name -->
+										<span >{{examinationsView.examination}}</span> <!--item-name -->
 								</a>
 							</div>
 						</div><!-- /.container-fluid -->
@@ -424,6 +552,7 @@
 					</div>
 				</div>
 				<!--/radios' list!-->
+		</div>
 		</div>
 		<!--/RadiosView !-->
 		<!--RadioView !-->
