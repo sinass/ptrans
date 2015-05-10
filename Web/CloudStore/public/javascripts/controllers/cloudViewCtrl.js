@@ -77,13 +77,11 @@ $scope.singleRadioView = singleRadioView;
 		console.log("id user:"+user.id);
 		var u = appService.veterinary.animals(user.id);
 		u.$promise.then(function(d){
-			$scope.data = {
-					animals:d,
-					menu:{
-						user:{Lastname:user.appVeterinarie.lastName,FirstName:user.appVeterinarie.firstName,email:user.login},
-						content:[{name:"Personal Folder",link:"#"},{name:"Diagnostics",link:"#"},{name:"Shared with me",link:"#"}]
-					},
-			}
+			$scope.animals = d;
+			$scope.menu = {
+					user:{Lastname:user.appVeterinarie.lastName,FirstName:user.appVeterinarie.firstName,email:user.login},
+					content:[{name:"Personal Folder",link:"#"},{name:"Diagnostics",link:"#"},{name:"Shared with me",link:"#"}]
+				};
 		});
 		
 		 

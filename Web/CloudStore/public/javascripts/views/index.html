@@ -37,13 +37,13 @@
 						<li class="list-group-item column-item-top"> <!--head-section -->
 							<i class="fa fa-user fa-4x fa-fw item-icon"></i> <!--avatar-icon -->
 							<div class="item-content">
-								<h4 >{{data.menu.user.Lastname}}&nbsp;{{data.menu.user.Firstname}}</h4>
-								<span class="item-info">{{data.menu.user.email}}</span><!--user-email -->
+								<h4 >{{menu.user.Lastname}}&nbsp;{{menu.user.Firstname}}</h4>
+								<span class="item-info">{{menu.user.email}}</span><!--user-email -->
 							</div>
 						</li>
 						<li class="list-group-item column-item" id="sub-item">
 							<ul class="sub-item list-group">
-								<li class="list-group-item column-item active-row" ng-repeat="item in data.menu.content">
+								<li class="list-group-item column-item active-row" ng-repeat="item in menu.content">
 									<i class="fa fa-folder-o fa-2x fa-fw"></i> <!--folder-icon -->
 									<div class="item-content">
 										<h4 class="item-tab-name">{{item.name}}</h4> <!--item-name -->
@@ -104,7 +104,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -150,7 +150,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -221,7 +221,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -271,7 +271,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -347,7 +347,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in examinations" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -397,7 +397,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.studies" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in examinations" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -469,7 +469,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-file-photo-o fa-2x fa-fw"></i> <!--folder-icon -->
@@ -519,7 +519,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in data.radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
 								<div class="row-fluid" >
 									<div class="col-sm-12">
 										<i class="fa fa-file-photo-o fa-2x fa-fw"></i> <!--folder-icon -->
