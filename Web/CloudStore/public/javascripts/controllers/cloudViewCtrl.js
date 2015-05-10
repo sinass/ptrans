@@ -1,5 +1,6 @@
 angular.module("cloudView")
-.controller("cloudViewCtrl",['$scope','$cookieStore','$rootScope','$route','visor','$location',function($scope,$cookieStore,$rootScope,$route,visor,$location){
+.controller("cloudViewCtrl",['$scope','$cookieStore','$rootScope','$route','visor','$location','appService',
+ function($scope,$cookieStore,$rootScope,$route,visor,$location,appService){
 
 	/*code de visor */
 	$scope.$route = $route;
@@ -38,7 +39,7 @@ $scope.singleRadioView = singleRadioView;
 
    /*************** selectedRadioCtrl ******/
     
-$scope.data = {
+/*$scope.data = {
     menu:{
         user:{Lastname:"Sinayoko",FirstName:"Mahamadou",email:"sinayoko.mahamadou@yahoo.fr",type:"user"},
         content:[{name:"Personal Folder",link:"#"}]
@@ -68,6 +69,27 @@ $scope.data = {
         {animal:"Paul-Peroquet",study:"Etude du 08/02/2011",date:"08/02/2011",accessReport:"non",doctor:"Dr-Y",name:"radio7"},
         {animal:"Paul-Peroquet",study:"Etude du 10/02/2012",date:"10/02/2012",accessReport:"oui",doctor:"Dr-Y",name:"radio8"},
         ],
-};
+};*/
+
+	var user = $cookieStore.get("user");
+	switch (user.type){
+	case "veterinary": 
+		console.log("id user:"+user.id);
+		var u = appService.veterinary.animals(user.id);
+		u.$promise.then(function(d){
+			$scope.data = {
+					animals:d,
+					menu:{
+						user:{Lastname:user.appVeterinarie.lastName,FirstName:user.appVeterinarie.firstName,email:user.login},
+						content:[{name:"Personal Folder",link:"#"},{name:"Diagnostics",link:"#"},{name:"Shared with me",link:"#"}]
+					},
+			}
+		});
+		
+		 
+		break;
+	case "owner": break;
+	case "user": break;
+	}
       
 }]);
