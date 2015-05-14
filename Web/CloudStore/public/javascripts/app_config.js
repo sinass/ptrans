@@ -31,6 +31,22 @@ angular.module("cloudView")
         	return user && user.id!=undefined && user.id!=0 && user.id!=null;
         	}
       }).
+      when('/codiagnostics', {
+    	  templateUrl: '/assets/javascripts/views/index.html',
+          controller: 'cloudViewCtrl',
+          restrict:function(user){
+          	console.log(user);
+          	return user && user.id!=undefined && user.id!=0 && user.id!=null;
+          	}
+        }).
+      when('/sharedwithme', {
+    	  templateUrl: '/assets/javascripts/views/index.html',
+          controller: 'cloudViewCtrl',
+          restrict:function(user){
+          	console.log(user);
+          	return user && user.id!=undefined && user.id!=0 && user.id!=null;
+          	}
+        }).
       when('/home', {
           templateUrl: '/assets/javascripts/views/login.html'
         }).

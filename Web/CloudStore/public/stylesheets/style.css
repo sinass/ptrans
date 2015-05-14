@@ -90,13 +90,20 @@ ul li.column-item:last-child {
 .column-item>.sub-item>.column-item{
 	padding-left:60px;
 }
+.column-item a{
+	text-decoration: none;
+	color: inherit;
+}
+.column-item a:hover{
+	text-decoration: none;
+}
 /*
 .column-item:hover > .fa{
 	font-size: 32px;
   	vertical-align: -6px;
 }
 */
-.column-item:hover, .column-item.active-row{
+.column-item:hover, .column-item.active_row{
 	background-color: #d4eefc;
 }
 #sub-item{

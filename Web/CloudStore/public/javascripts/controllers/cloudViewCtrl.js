@@ -80,7 +80,11 @@ $scope.singleRadioView = singleRadioView;
 			$scope.animals = d;
 			$scope.menu = {
 					user:{Lastname:user.appVeterinarie.lastName,FirstName:user.appVeterinarie.firstName,email:user.login},
-					content:[{name:"Personal Folder",link:"#"},{name:"Diagnostics",link:"#"},{name:"Shared with me",link:"#"}]
+					content:[
+					         {name:"Personal Folder",link:"/index"},
+					         {name:"Co-Diagnostics",link:"/codiagnostics"},
+					         {name:"Shared with me",link:"/sharedwithme"}
+					         ]
 				};
 		});
 		

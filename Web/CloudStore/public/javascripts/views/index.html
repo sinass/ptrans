@@ -43,12 +43,14 @@
 						</li>
 						<li class="list-group-item column-item" id="sub-item">
 							<ul class="sub-item list-group">
-								<li class="list-group-item column-item active-row" ng-repeat="item in menu.content">
-									<i class="fa fa-folder-o fa-2x fa-fw"></i> <!--folder-icon -->
-									<div class="item-content">
-										<h4 class="item-tab-name">{{item.name}}</h4> <!--item-name -->
-									</div>
-									<i class="fa fa-angle-right fa-lg fa-fw  angle"></i> <!--angle-right-icon -->
+								<li ng-class="{active_row: $route.current.originalPath != '{{item.link}}'}" class="list-group-item column-item"  ng-repeat="item in menu.content">
+									<a  href="/#{{item.link}}">
+										<i class="fa fa-folder-o fa-2x fa-fw"></i> <!--folder-icon -->
+										<div class="item-content">
+											<h4 class="item-tab-name">{{item.name}}</h4> <!--item-name -->
+										</div>
+										<i class="fa fa-angle-right fa-lg fa-fw  angle"></i> <!--angle-right-icon -->
+									</a>
 								</li>
 							</ul>
 						</li>
@@ -57,7 +59,9 @@
 			</div>
 		</div><!-- /.navbar-column -->
 		<!--/menuView !--> 
-		<!-- animalsView !--> 
+		<div ng-show="$route.current.originalPath == '/index'">
+		
+				<!-- animalsView !--> 
 		<div  ng-show="animalView.show">
 			<!-- animal's tab column !-->
 			<div class="col-sm-9 column"  ng-show="animalView.tab"><!--column animals -->
@@ -584,6 +588,14 @@
 			<!--/radios' tab's column !-->
 		</div>
 		<!--/RadioView !-->
+		
+		</div>
+		<div ng-show="$route.current.originalPath == '/codiagnostics'">
+		
+		</div>
+		<div ng-show="$route.current.originalPath == '/sharedwithme'">
+		
+		</div>
 	</div>
 </div>
      </div>
