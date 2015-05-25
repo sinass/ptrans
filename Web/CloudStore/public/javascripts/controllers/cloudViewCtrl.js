@@ -71,15 +71,15 @@ $scope.singleRadioView = singleRadioView;
         ],
 };*/
 
-	var user = $cookieStore.get("user");
-	switch (user.type){
+	$scope.user = $cookieStore.get("user");
+	switch ($scope.user.type){
 	case "veterinary": 
-		console.log("id user:"+user.id);
-		var u = appService.veterinary.animals(user.id);
+		console.log("id user:"+$scope.user.id);
+		var u = appService.veterinary.animals($scope.user.id);
 		u.$promise.then(function(d){
 			$scope.animals = d;
 			$scope.menu = {
-					user:{Lastname:user.appVeterinarie.lastName,FirstName:user.appVeterinarie.firstName,email:user.login},
+					user:{Lastname:$scope.user.appVeterinarie.lastName,FirstName:$scope.user.appVeterinarie.firstName,email:$scope.user.login},
 					content:[
 					         {name:"Personal Folder",link:"/index"},
 					         {name:"Co-Diagnostics",link:"/codiagnostics"},
@@ -92,6 +92,30 @@ $scope.singleRadioView = singleRadioView;
 		break;
 	case "owner": break;
 	case "user": break;
+	}
+	
+	$scope.animalSelected = function(idAnimal,name){
+		console.log(idAnimal,name);
+		switch ($scope.user.type){
+		case "veterinary":
+			var u = appService.animal.studies($scope.user.id,idAnimal);
+			u.$promise.then(function(d){
+				console.log(d);
+				$scope.studies = d;
+				$scope.animalView.AnimalSelected(name)
+			});
+			break;
+		}
+	}
+	
+	$scope.studySelected = function(idStudy,date){
+		console.log(idStudy,date);
+		var u = appService.study.examinations(idStudy);
+		u.$promise.then(function(d){
+			console.log(d);
+			$scope.examinations = d;
+			$scope.studiesView.StudySelected("Etude du "+date)
+		});
 	}
       
 }]);

@@ -108,7 +108,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in animals" ng-click="animalSelected(item.id,item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -154,7 +154,7 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in animals" ng-click="animalView.AnimalSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in animals" ng-click="animalSelected(item.id,item.name)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
@@ -211,12 +211,6 @@
 									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
 								</a>
 							</div>
-							<div class="pull-right tab-header-item">
-								<a href="#" class="sortable tab-header-item-name docteur">
-									<span>Docteur</span>
-									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
-								</a>
-							</div>
 						</div>
 					</nav><!-- /.navbar -->
 				</div>
@@ -225,18 +219,14 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in studies" ng-click="studySelected(item.id,item.startDate)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.date}}</span>
+											<h4 class="item-name">Etude commencé le {{item.startDate}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.startDate}}</span>
 										</div>
-									</div>
-									<div class="pull-right tab-header-item">
-										<span class="meta-item item-info tab-header-item-name diagnostic ">{{item.accessReport}}</span>
-										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
 									</div>
 								</div>
 							</li>
@@ -275,12 +265,12 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in studies" ng-click="studiesView.StudySelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in studies" ng-click="studySelected(item.id,item.startDate)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
+											<h4 class="item-name">Etude commencé le {{item.startDate}}</h4> <!--item-name -->
 											<span class="meta item-info">{{item.date}}</span>
 										</div>
 									</div>
@@ -338,10 +328,6 @@
 									<span>Accès diagnostic</span>
 									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
 								</a>
-								<a href="#" class="sortable tab-header-item-name docteur">
-									<span>Docteur</span>
-									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
-								</a>
 							</div>
 						</div>
 					</nav><!-- /.navbar -->
@@ -351,18 +337,17 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in examinations" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in examinations" ng-click="examinationSelected(item.id,item.dateExamination)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.date}}</span>
+											<h4 class="item-name">Examen du {{item.dateExamination}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.dateExamination}}</span>
 										</div>
 									</div>
 									<div class="pull-right tab-header-item">
-										<span class="meta-item item-info tab-header-item-name diagnostic ">{{item.accessReport}}</span>
-										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
+										<span class="meta-item item-info tab-header-item-name diagnostic ">{{item.isShared}}</span>
 									</div>
 								</div>
 							</li>
@@ -401,13 +386,13 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in examinations" ng-click="examinationsView.ExaminationSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in examinations" ng-click="examinationSelected(item.id,item.dateExamination)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.date}}</span>
+											<h4 class="item-name">Examen du {{item.dateExamination}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.dateExamination}}</span>
 										</div>
 									</div>
 								</div>

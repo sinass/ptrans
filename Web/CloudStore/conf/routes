@@ -25,3 +25,4 @@ GET      /authenticate/:login/:password     controllers.User.authenticate(login:
 GET      /veterinary/animals/:id     controllers.Veterinary.findAnimals(id: Integer)
 # Find animal studies
 GET      /animal/studies/:idVeterinary/:idAnimal     controllers.Animal.findStudies(idVeterinary: Integer,idAnimal: Integer)
+GET      /study/examinations/:idStudy     controllers.Study.findExaminations(idStudy: Integer)
