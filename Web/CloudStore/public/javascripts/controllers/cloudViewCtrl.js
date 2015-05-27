@@ -130,7 +130,18 @@ $scope.singleRadioView = singleRadioView;
 	
 	$scope.imageSelected = function(index){
 		console.log(index);
-		$scope.radiosView.RadioSelected("Radio "+index)
+		var u = appService.config.find();
+		u.$promise.then(function(d){
+			console.log(d);
+			$scope.selectedImage = $scope.images[index].pathImageName;
+			//AWS.config.update({accessKeyId: d.s3FirstKey, secretAccessKey: d.s3SecondKey,region: 'eu-central-1'});
+			/*var s3 = new AWS.S3();
+			s3.getObject({Bucket: 'testveto1', Key: '1.2.392.12345.1.2006.10.25.19.0.23.376.jpeg'}, function (err, data) {
+			  console.log(err, data);
+			});*/
+		});
+		var help = index+1;
+		$scope.radiosView.RadioSelected("Radio "+help)
 	}
       
 }]);
