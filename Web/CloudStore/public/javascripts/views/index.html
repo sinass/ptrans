@@ -440,16 +440,6 @@
 									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
 								</a>
 							</div>
-							<div class="pull-right tab-header-item">
-								<a href="#" class="sortable tab-header-item-name ">
-									<span>Docteur</span>
-									<i class="fa fa-angle-down fa-fw"></i> <!--angle-up-icon -->
-								</a>
-								<a href="#" class="sortable tab-header-item-name ">
-									<span>Accèss Diagnostic</span>
-									<i class="fa fa-angle-up fa-fw"></i> <!--angle-up-icon -->
-								</a>
-							</div>
 						</div>
 					</nav><!-- /.navbar -->
 				</div>
@@ -458,18 +448,13 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in images" ng-click="imageSelected($index)"> <!--head-section -->
 								<div class="row-fluid">
 									<div class="col-sm-4">
 										<i class="fa fa-file-photo-o fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.date}}</span>
+											<h4 class="item-name">Radio {{$index+1}}</h4> <!--item-name -->
 										</div>
-									</div>
-									<div class="pull-right tab-header-item">
-										<span class="meta-item item-info tab-header-item-name docteur">{{item.doctor}}</span>
-										<span class="meta-item item-info tab-header-item-name diagnostic">{{item.accessReport}}</span>
 									</div>
 								</div>
 							</li>
@@ -508,13 +493,12 @@
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
 						<ul class="list-group column-content"><!--items -->
-							<li class="list-group-item column-item content-div" ng-repeat="item in radios" ng-click="radiosView.RadioSelected(item.name)"> <!--head-section -->
+							<li class="list-group-item column-item content-div" ng-repeat="item in images" ng-click="imageSelected($index)"> <!--head-section -->
 								<div class="row-fluid" >
 									<div class="col-sm-12">
 										<i class="fa fa-file-photo-o fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">{{item.name}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.date}}</span>
+											<h4 class="item-name">Radio {{$index+1}}</h4> <!--item-name -->
 										</div>
 									</div>
 								</div>

@@ -26,3 +26,5 @@ GET      /veterinary/animals/:id     controllers.Veterinary.findAnimals(id: Inte
 # Find animal studies
 GET      /animal/studies/:idVeterinary/:idAnimal     controllers.Animal.findStudies(idVeterinary: Integer,idAnimal: Integer)
 GET      /study/examinations/:idStudy     controllers.Study.findExaminations(idStudy: Integer)
+GET      /examination/images/:idExamination     controllers.Examination.findImages(idExamination: Integer)
+GET      /config     controllers.Config.find()

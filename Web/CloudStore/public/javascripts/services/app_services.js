@@ -2,8 +2,9 @@ angular.module("cloudView")
 .constant("animalURL","animal/")
 .constant("veterinaryURL","veterinary/")
 .constant("studyURL","study/")
-.service("appService",['$resource','animalURL','veterinaryURL','studyURL',
-   function($resource,animalURL,veterinaryURL,studyURL){
+.constant("examinationURL","examination/")
+.service("appService",['$resource','animalURL','veterinaryURL','studyURL','examinationURL',
+   function($resource,animalURL,veterinaryURL,studyURL,examinationURL){
 	this.veterinary = {
 			animals: function(idVeto){
 				var vetoRS = $resource(veterinaryURL+"animals/:idVeto");
@@ -33,6 +34,17 @@ angular.module("cloudView")
 					console.log(" get study examinations ok");
 				},function(){
 					console.log("get study examinations non ok:erreur");
+				});
+				return u;
+			}
+	};
+	this.examination = {
+			images: function(id){
+				var imageRS = $resource(examinationURL+"images/:idExamination");
+				var u = imageRS.query({idExamination:id},function(){
+					console.log(" get examination images ok");
+				},function(){
+					console.log("get examination images non ok:erreur");
 				});
 				return u;
 			}

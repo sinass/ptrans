@@ -117,5 +117,20 @@ $scope.singleRadioView = singleRadioView;
 			$scope.studiesView.StudySelected("Etude du "+date)
 		});
 	}
+	
+	$scope.examinationSelected = function(idExam,date){
+		console.log(idExam,date);
+		var u = appService.examination.images(idExam);
+		u.$promise.then(function(d){
+			console.log(d);
+			$scope.images = d;
+			$scope.examinationsView.ExaminationSelected("Examen du "+date)
+		});
+	}
+	
+	$scope.imageSelected = function(index){
+		console.log(index);
+		$scope.radiosView.RadioSelected("Radio "+index)
+	}
       
 }]);
