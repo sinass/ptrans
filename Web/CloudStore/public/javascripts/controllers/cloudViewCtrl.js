@@ -1,6 +1,6 @@
 angular.module("cloudView")
-.controller("cloudViewCtrl",['$scope','$cookieStore','$rootScope','$route','visor','$location','appService',
- function($scope,$cookieStore,$rootScope,$route,visor,$location,appService){
+.controller("cloudViewCtrl",['$scope','$cookieStore','$rootScope','$route','visor','$location','$filter','appService',
+ function($scope,$cookieStore,$rootScope,$route,visor,$location,$filter,appService){
 
 	/*code de visor */
 	$scope.$route = $route;
@@ -114,6 +114,7 @@ $scope.singleRadioView = singleRadioView;
 		u.$promise.then(function(d){
 			console.log(d);
 			$scope.examinations = d;
+			date = $filter('date')(date,'dd-MM-yyyy');
 			$scope.studiesView.StudySelected("Etude du "+date)
 		});
 	}
@@ -124,6 +125,7 @@ $scope.singleRadioView = singleRadioView;
 		u.$promise.then(function(d){
 			console.log(d);
 			$scope.images = d;
+			date = $filter('date')(date,'dd-MM-yyyy');
 			$scope.examinationsView.ExaminationSelected("Examen du "+date)
 		});
 	}

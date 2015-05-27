@@ -1,7 +1,7 @@
 <div class="container-fluid column-container" ng-controller="cloudViewCtrl">
 	<div class="row-fluid">
 		<!-- menuView !--> 
-		<div class="col-sm-3 column" ng-show="menuView.show" >
+		<div class="col-sm-4 column" ng-show="menuView.show" >
 			<div class="row-fluid">
 				<!--navbar-->
 				<nav class="navbar navbar-default column-menu">
@@ -64,7 +64,7 @@
 				<!-- animalsView !--> 
 		<div  ng-show="animalView.show">
 			<!-- animal's tab column !-->
-			<div class="col-sm-9 column"  ng-show="animalView.tab"><!--column animals -->
+			<div class="col-sm-8 column"  ng-show="animalView.tab"><!--column animals -->
 				<!--animals tab's header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -126,7 +126,7 @@
 			</div>
 			<!--/animals' tab's colum !-->
 			<!-- animal's list's column !-->
-			<div class="col-sm-2 column" ng-show="animalView.list">
+			<div class="col-sm-4 column" ng-show="animalView.list">
 				<!--animal's list header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -175,7 +175,7 @@
 		<!-- studiesView !-->
 		<div  ng-show="studiesView.show">
 			<!--studies tab's column !-->
-			<div class="col-sm-7 column"  ng-show="studiesView.tab"><!--column studies -->
+			<div class="col-sm-4 column"  ng-show="studiesView.tab"><!--column studies -->
 				<!--studies tab's header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -224,8 +224,8 @@
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">Etude commencé le {{item.startDate}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.startDate}}</span>
+											<h4 class="item-name">Etude commencé le {{item.startDate|date:'dd-MM-yyyy'}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.startDate|date:'dd-MM-yyyy'}}</span>
 										</div>
 									</div>
 								</div>
@@ -237,7 +237,7 @@
 			</div>
 			<!--/studies tab's column !-->
 			<!-- studies list's column !-->
-			<div class="col-sm-2 column" ng-show="studiesView.list">
+			<div class="col-sm-4 column" ng-show="studiesView.list">
 				<!--studies list header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -270,8 +270,8 @@
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">Etude commencé le {{item.startDate}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.date}}</span>
+											<h4 class="item-name">Etude commencé le {{item.startDate|date:'dd-MM-yyyy'}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.startDate|date:'dd-MM-yyyy'}}</span>
 										</div>
 									</div>
 								</div>
@@ -287,7 +287,7 @@
 		<!-- ExaminationsView !-->
 		<div  ng-show="examinationsView.show">
 			<!--examinations tab's column !-->
-			<div class="col-sm-8 column"  ng-show="examinationsView.tab"><!--column studies -->
+			<div class="col-sm-4 column"  ng-show="examinationsView.tab"><!--column studies -->
 				<!--examinations tab's header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -342,8 +342,8 @@
 									<div class="col-sm-4">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">Examen du {{item.dateExamination}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.dateExamination}}</span>
+											<h4 class="item-name">Examen du {{item.dateExamination|date:'dd-MM-yyyy'}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.dateExamination|date:'dd-MM-yyyy'}}</span>
 										</div>
 									</div>
 									<div class="pull-right tab-header-item">
@@ -358,7 +358,7 @@
 			</div>
 			<!--/examinations tab's column !-->
 			<!-- examinations list's column !-->
-			<div class="col-sm-2 column" ng-show="examinationsView.list">
+			<div class="col-sm-4 column" ng-show="examinationsView.list">
 				<!--studies list header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -391,8 +391,8 @@
 									<div class="col-sm-12">
 										<i class="fa fa-folder fa-2x fa-fw"></i> <!--folder-icon -->
 										<div class="item-content">
-											<h4 class="item-name">Examen du {{item.dateExamination}}</h4> <!--item-name -->
-											<span class="meta item-info">{{item.dateExamination}}</span>
+											<h4 class="item-name">Examen du {{item.dateExamination|date:'dd-MM-yyyy'}}</h4> <!--item-name -->
+											<span class="meta item-info">{{item.dateExamination|date:'dd-MM-yyyy'}}</span>
 										</div>
 									</div>
 								</div>
@@ -408,7 +408,7 @@
 		<!--RadiosView !-->
 		<div  ng-show="radiosView.show">
 			<!--radio's tab's column !-->
-			<div class="col-sm-8 column"  ng-show="radiosView.tab"><!--column radios -->
+			<div class="col-sm-4 column"  ng-show="radiosView.tab"><!--column radios -->
 				<!--radio's tab's header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -465,7 +465,7 @@
 			</div>
 			<!--/radios' tab's column !-->
 			<!-- radios list's column !-->
-			<div class="col-sm-2 column" ng-show="radiosView.list">
+			<div class="col-sm-4 column" ng-show="radiosView.list">
 				<!--radio's list header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -513,7 +513,7 @@
 		<!--RadioView !-->
 		<div  ng-show="singleRadioView.show">
 			<!--radio's tab's column !-->
-			<div class="col-sm-8 column" ><!--column studies -->
+			<div class="col-sm-4 column" ><!--column studies -->
 				<!--radio's tab's header !-->
 				<div class="row-fluid" > <!--column nav-row -->
 					<!--navbar-->
@@ -529,18 +529,6 @@
 								</a>
 							</div>
 							<div class="collapse navbar-collapse" id="cloudview-navbar">
-								<ul class="nav navbar-nav navbar-right">
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-list fa-lg fa-fw"></i><span class="caret"></span></a>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="#"><i class="fa fa-download fa-lg fa-fw"></i>Télécharger JPG</a></li>
-											<li><a href="#"><i class="fa fa-arrows-alt fa-lg fa-fw"></i>Zoomer</a></li>
-											<li><a href="#"><i class="fa fa-magic fa-lg fa-fw"></i>Luminance</a></li>
-											<li><a href="#"><i class="fa fa-lightbulb-o fa-lg fa-fw"></i>Contraste</a></li>
-											<li><a href="#"><i class="fa fa-arrows fa-lg fa-fw"></i>Déplacement</a></li>
-										</ul>
-									</li>
-								</ul>
 							</div><!-- /.navbar-collapse -->
 						</div><!-- /.container-fluid -->
 					</nav><!-- /.navbar -->
@@ -549,7 +537,7 @@
 				<!--radio's tab content !-->
 				<div class="row-fluid" > <!--column content-row -->
 					<div class="col-sm-12 column-content-container">
-						<img src="{{selectedImage}}" style="width:70%;height:40%;margin:0 15% 0 15%"/> 
+						<img src="{{selectedImage}}" style="width:95%;height:50%;margin:0 2.5% 0 2.5%"/> 
 					</div>
 				</div>
 				<!--/radios' tab !-->
